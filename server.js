@@ -1,11 +1,14 @@
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt");
+const passport = require(passport)
+
+const initializePassport = require('./passport-config')
 
 const users = [];
 
 app.set("view-engine", "ejs");
-app.unsubscribe(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   res.render("index.ejs", { name: "yoga" });
